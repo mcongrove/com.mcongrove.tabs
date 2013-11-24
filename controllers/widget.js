@@ -1,7 +1,7 @@
 /**
  * The tab bar widget
  * 
- * @class Widgets.com.chariti.tabs
+ * @class Widgets.com.mcongrove.tabs
  */
 
 /**

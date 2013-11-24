@@ -5,19 +5,68 @@ A custom TabGroup widget for Titanium Alloy.
 Example Usage
 -------------
 
-	Coming Soon
+###### Alloy View (XML)
+
+	<Require type="widget" src="com.mcongrove.tabs" id="Tabs" />
+
+###### Alloy Controller (JS)
+
+	// Create our tab items
+	var tabs = [
+		{ id: 0, title: "Home", image: "/images/home.png" },
+		{ id: 1, title: "Contact", image: "/images/phone.png" },
+		{ id: 2, title: "Settings", image: "/images/gear.png" }
+	];
+
+	// Initialize the tab bar
+	$.Tabs.init({
+		nodes: tabs,
+		more: "/images/dotDotDot.png",
+		color: {
+			background: "#000",
+			active: "#222",
+			text: "#FFF"
+		}
+	});
+	
+	// Set the first tab as active
+	$.Tabs.setIndex(0);
+	
+	// Add an event listener on the tabs
+	$.Tabs.Wrapper.addEventListener("click", handleTabClick);
+	
+	// Handle the click event on a tab
+	function handleTabClick(_event) {
+		if(typeof _event.source.id !== "undefined") {
+			openScreen(_event.source.id);
+		}
+	}
 
 Options
 -------
-Parameter   | Type        | Default 
-------------|-------------|------------
-Coming Soon | Coming Soon | Coming Soon
+Parameter        | Type     | Default |
+-----------------|----------|---------|
+nodes            | `Array`  |         |
+more             | `String` |         |
+color            | `Object` |         |
+color.background | `String` |         |
+color.active     | `String` |         |
+color.text       | `String` |         |
+
+###### Node Parameters:
+
+Parameter | Type     | Description      |
+----------|----------|------------------|
+id        | `Number` | Node ID (unique) |
+title     | `String` | Node title       |
+image     | `String` | Icon path        |
 
 Methods
 -------
-Function    | Parameters  | Description 
-------------|-------------|------------
-Coming Soon | Coming Soon | Coming Soon
+Function | Parameters | Description                               |
+---------|------------|-------------------------------------------|
+clear    |            | Removes all nodes                         |
+setIndex | `index`    | The index of the item to mark as selected |
 
 Changelog
 ---------
